@@ -1,1 +1,1 @@
-Trigger project restoration and validation.
+Trigger project restoration and validation — final run.
