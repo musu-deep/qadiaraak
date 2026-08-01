@@ -7,7 +7,7 @@ export const Logo: FC<{ className?: string; size?: number }> = ({ className = ''
     viewBox="0 0 32 32"
     className={className}
     fill="none"
-    aria-label="شعار قاضي اراك"
+    aria-label="شعار محامي اراك"
   >
     <rect width="32" height="32" rx="8" fill="#0B1F3A" />
     <rect x="0.5" y="0.5" width="31" height="31" rx="7.5" stroke="#C9A24B" strokeOpacity="0.35" />
@@ -29,6 +29,6 @@ export const Logo: FC<{ className?: string; size?: number }> = ({ className = ''
 
 export const Wordmark: FC<{ className?: string }> = ({ className = '' }) => (
   <span className={`font-display font-extrabold tracking-tight ${className}`}>
-    قاضي <span className="text-gold-400">اراك</span>
+    محامي <span className="text-gold-400">اراك</span>
   </span>
 )

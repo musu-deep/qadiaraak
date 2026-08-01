@@ -5,7 +5,7 @@ import { ShieldCheck, Scale } from 'lucide-react'
 export const Story: FC = () => (
   <Section id="story" className="py-20 sm:py-28">
     <div className="reveal mx-auto max-w-3xl text-center">
-      <Eyebrow>لماذا قاضي اراك؟</Eyebrow>
+      <Eyebrow>لماذا محامي اراك؟</Eyebrow>
       <h2 className="mt-5 font-display text-3xl font-extrabold leading-snug text-white sm:text-4xl">
         لأن العمل القانوني لا يبدأ عند وقوع المشكلة؛ بل قبلها بوقتٍ كافٍ.
       </h2>
@@ -15,12 +15,12 @@ export const Story: FC = () => (
       <ShieldCheck className="absolute -top-3 right-6 h-16 w-16 text-gold-500/15" />
       <div className="space-y-5 text-base leading-relaxed text-slate-200 sm:text-lg">
         <p>
-          بُني قاضي اراك ليجمع أعمال الشؤون القانونية المتفرقة في مسار واحد: مراجعة
+          بُني محامي اراك ليجمع أعمال الشؤون القانونية المتفرقة في مسار واحد: مراجعة
           اللوائح والسياسات والعقود، رصد المخاطر، إدارة الملفات اليومية، متابعة العملاء
           والموردين، ثم التحصيل والتنفيذ عند انتهاء آجال السداد.
         </p>
         <p>
-          بدلاً من الاعتماد على الرسائل والملفات المنفصلة، يمنح المنصة كل طلبٍ قانوني
+          بدلاً من الاعتماد على الرسائل والملفات المنفصلة، تمنح المنصة كل طلبٍ قانوني
           مسؤولاً وحالةً وموعداً وسجل قرارات؛ حتى تعرف الإدارة ما الذي أُنجز، وما المتأخر،
           وما الذي يحتاج تدخلاً قبل أن تتضاعف تكلفته.
         </p>
@@ -28,7 +28,7 @@ export const Story: FC = () => (
 
       <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6">
         <p className="text-sm font-medium text-slate-300">
-          منصةٌ خاصة باراك، صُممت حول دورة عملها القانونية ومسؤوليات فرقها.
+          منصةٌ خاصة باراك، صُممت حول دورة عمل محاميها الداخليين ومسؤوليات فرقها.
         </p>
         <a
           href="#analysis"

@@ -19,7 +19,7 @@ export const CTA: FC = () => (
         ملف واحد، مسؤول واحد، ومسار واضح لا يضيع
       </h2>
       <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
-        يجمع قاضي اراك الوقاية والعقود والقضايا والمواعيد والتحصيل في مساحة تشغيل واحدة،
+        يجمع محامي اراك الوقاية والعقود والقضايا والمواعيد والتحصيل في مساحة تشغيل واحدة،
         ويمنح الإدارة رؤيةً أوضح دون أن ينتزع القرار من المختص القانوني.
       </p>
 
@@ -96,7 +96,7 @@ export const Footer: FC = () => (
       </div>
 
       <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-white/5 pt-6 text-xs text-slate-500 sm:flex-row">
-        <p>© 2026 قاضي اراك — مجموعة اراك للتنمية. جميع الحقوق محفوظة.</p>
+        <p>© 2026 محامي اراك — مجموعة اراك للتنمية. جميع الحقوق محفوظة.</p>
         <p>تطوير اليوم .. استثمار في الغد</p>
       </div>
     </div>
