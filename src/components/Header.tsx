@@ -31,7 +31,7 @@ export const Header: FC = () => {
       }`}
     >
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
-        <a href="#top" className="flex items-center gap-2.5" aria-label="قاضي اراك">
+        <a href="#top" className="flex items-center gap-2.5" aria-label="محامي اراك">
           <Logo size={34} />
           <Wordmark className="text-lg text-white" />
         </a>
@@ -50,11 +50,11 @@ export const Header: FC = () => {
 
         <div className="hidden items-center gap-3 md:flex">
           <a
-            href="#cta"
+            href="#pipeline"
             className="group inline-flex items-center gap-2 rounded-full bg-gold-500 px-5 py-2 text-sm font-semibold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-[0_8px_30px_-8px_rgba(201,162,75,0.6)]"
           >
             <Scale className="h-4 w-4" />
-            مساحة العمل الداخلية
+            استعرض المنصة
           </a>
         </div>
 
@@ -84,12 +84,12 @@ export const Header: FC = () => {
             </a>
           ))}
           <a
-            href="#cta"
+            href="#pipeline"
             onClick={() => setOpen(false)}
             className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-gold-500 px-5 py-2.5 text-sm font-semibold text-navy-950"
           >
             <Scale className="h-4 w-4" />
-            مساحة العمل الداخلية
+            استعرض المنصة
           </a>
         </nav>
       </div>
