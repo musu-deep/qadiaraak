@@ -2,19 +2,20 @@ import type { FC } from 'react'
 import { useState } from 'react'
 import { Section, Eyebrow } from './primitives'
 import {
+  Inbox,
+  ShieldCheck,
   FileSearch,
+  Handshake,
+  BellRing,
   Gavel,
-  Scale,
-  Swords,
-  ShieldAlert,
   ClipboardCheck,
-  TrendingUp,
   Users,
+  ShieldAlert,
 } from 'lucide-react'
 
 interface Stage {
   n: number
-  icon: typeof FileSearch
+  icon: typeof Inbox
   title: string
   desc: string
   detail: string
@@ -23,59 +24,59 @@ interface Stage {
 const STAGES: Stage[] = [
   {
     n: 1,
-    icon: FileSearch,
-    title: 'تحليل المستندات',
-    desc: 'جدول زمني، أدلة مصنّفة، تدقيق ادعاءات، تناقضات',
+    icon: Inbox,
+    title: 'استقبال الطلب وتصنيفه',
+    desc: 'الجهة الطالبة، الأولوية، المسؤول، الموعد المستهدف',
     detail:
-      'يرسم الجدول الزمني، ويصنّف الأدلة، ويدقّق الادعاءات مقابل ما يثبتها فعلاً، ويكشف التناقضات داخل الملف.',
+      'يُسجَّل الطلب القانوني من بدايته مع الجهة الطالبة ونوعه ودرجة خطورته وأولويته، ثم يُسند إلى المسؤول المناسب بموعد واضح للمعالجة.',
   },
   {
     n: 2,
-    icon: Gavel,
-    title: 'البحث المتوازي',
-    desc: 'إحصاء، قوانين مطبّقة، سوابق وأنماط فوز/خسارة',
+    icon: ShieldCheck,
+    title: 'المراجعة الوقائية',
+    desc: 'لوائح وسياسات وإجراءات وسجل مخاطر',
     detail:
-      'يحدّد القوانين المطبّقة والعناصر المطلوب إثباتها وعبء الإثبات والفجوات النظامية في القضية.',
+      'تُراجع اللوائح والسياسات والإجراءات الداخلية لاكتشاف التعارضات والفجوات قبل أن تتحول إلى مطالبة أو نزاع، وتُحدَّث المخاطر وإجراءات المعالجة.',
   },
   {
     n: 3,
-    icon: Scale,
-    title: 'تحليل السوابق',
-    desc: 'أقرب السوابق وأنماط الفوز والخسارة',
+    icon: FileSearch,
+    title: 'التقييم القانوني',
+    desc: 'وقائع، مستندات، التزامات، خيارات وتوصية',
     detail:
-      'يستخرج أقرب السوابق، وأنماط الفوز والخسارة، ومحاور التعليل التي عوّل عليها القضاة.',
+      'تُنظَّم الوقائع والمستندات والالتزامات ذات الصلة، وتُحدد نقاط القوة والضعف والخيارات النظامية، ثم تُرفع توصية قابلة للمراجعة والاعتماد.',
   },
   {
     n: 4,
-    icon: Swords,
-    title: 'تحليل الخصم',
-    desc: 'حجج الخصم، نقاط ضعفنا، استراتيجيات الرد',
+    icon: Handshake,
+    title: 'العقود والأطراف',
+    desc: 'عملاء، موردون، شركاء، التزامات وملاحظات',
     detail:
-      'يبني حجج الخصم المتوقعة، ويكشف نقاط ضعفنا والإثباتات الناقصة، ويقترح استراتيجيات الرد.',
+      'تُربط العقود بالأطراف والالتزامات والمواعيد والمراسلات، مع توثيق الملاحظات والتعديلات والنسخة المعتمدة وسجل كامل لدورة العقد.',
   },
   {
     n: 5,
-    icon: TrendingUp,
-    title: 'حساب الاحتمالية',
-    desc: 'مرساة إحصائية ثم مراجعة نوعية مؤطّرة ٥–٩٥٪',
+    icon: BellRing,
+    title: 'المواعيد والتنبيهات',
+    desc: 'استحقاقات، آجال، جلسات، تجديدات وتصعيد',
     detail:
-      'يحوّل تحليل السوابق إلى موقع واضح على مقياس مفهوم، مدعوماً بأقرب السوابق وتعليل يمكن الدفاع عنه.',
+      'تُراقب آجال السداد والتجديد والجلسات والردود النظامية، وتُرسل التنبيهات والتصعيدات بحسب حساسية الموعد ومستوى المسؤولية.',
   },
   {
     n: 6,
-    icon: ClipboardCheck,
-    title: 'التحليل العميق',
-    desc: 'نقاط ضعف حرجة، توصية تسوية، تقرير سردي',
+    icon: Gavel,
+    title: 'التحصيل والتنفيذ',
+    desc: 'تفاهم، مطالبة، إجراء قانوني، تنفيذ ومتابعة',
     detail:
-      'يجمع مخرجات الوكلاء في تقرير قانوني سردي بالعربية، مع نقاط الضعف الحرجة وتوصية التسوية.',
+      'عند انتهاء آجال السداد ينتقل الملف إلى مسار التحصيل والتنفيذ وفق تدرج واضح يبدأ بالتفاهم والمطالبة وينتهي بالإجراء القانوني ومتابعة التنفيذ.',
   },
   {
     n: 7,
-    icon: ShieldAlert,
-    title: 'المراجعة العدائية',
-    desc: 'كشف الهلوسة والتفاؤل المفرط حتى ثلاث جولات',
+    icon: ClipboardCheck,
+    title: 'الإغلاق والتعلّم',
+    desc: 'نتيجة، قرار، أثر مالي، درس مستفاد وإجراء وقائي',
     detail:
-      'يطارد الهلوسة والتفاؤل المفرط في التحليل، ويعيد المعالجة حتى ثلاث جولات قبل اعتماده.',
+      'يُغلق الملف بعد توثيق النتيجة والقرار والأثر المالي، وتُحوَّل الدروس المستفادة إلى تحديث في عقد أو سياسة أو إجراء وقائي يمنع تكرار المشكلة.',
   },
 ]
 
@@ -86,19 +87,17 @@ export const Analysis: FC = () => {
   return (
     <Section id="analysis" className="py-20 sm:py-28">
       <div className="reveal mx-auto max-w-3xl text-center">
-        <Eyebrow>فريقٌ كامل لكل قضية</Eyebrow>
+        <Eyebrow>دورة الملف القانوني</Eyebrow>
         <h2 className="mt-5 font-display text-3xl font-extrabold leading-snug text-white sm:text-4xl">
-          فريقٌ كامل يحلّل قضيتك عبر ٧ مراحل
+          سبع مراحل تحفظ الطلب من لحظة وروده حتى إغلاقه
         </h2>
         <p className="mt-4 text-base leading-relaxed text-slate-300 sm:text-lg">
-          لكل قضية، يعمل عدّة وكلاء ذكاء متخصصين بالتوازي: يقرؤون مستنداتك، ويبحثون في
-          السوابق، ويستبقون الخصم، ثم يراجع بعضهم عمل بعض قبل أن يصل التحليل إليك — مثل
-          غرفة مداولة لا نموذجاً واحداً.
+          لا يكتفي قاضي اراك بحفظ المستندات؛ بل يحوّل كل ملف إلى مسار مسؤوليات ومواعيد
+          واعتمادات، ويربط المعالجة اليومية بالوقاية والتحصيل والتنفيذ والتعلّم المؤسسي.
         </p>
       </div>
 
       <div className="mt-14 grid gap-6 lg:grid-cols-[1fr_1.2fr]">
-        {/* Stages list */}
         <ol className="reveal relative flex flex-col gap-2">
           {STAGES.map((s, i) => {
             const isActive = i === active
@@ -122,23 +121,18 @@ export const Analysis: FC = () => {
                     {s.n}
                   </span>
                   <div className="min-w-0 flex-1">
-                    <div
-                      className={`font-semibold ${isActive ? 'text-white' : 'text-slate-200'}`}
-                    >
+                    <div className={`font-semibold ${isActive ? 'text-white' : 'text-slate-200'}`}>
                       {s.title}
                     </div>
                     <div className="truncate text-xs text-slate-400">{s.desc}</div>
                   </div>
-                  <s.icon
-                    className={`h-5 w-5 shrink-0 ${isActive ? 'text-gold-400' : 'text-slate-500'}`}
-                  />
+                  <s.icon className={`h-5 w-5 shrink-0 ${isActive ? 'text-gold-400' : 'text-slate-500'}`} />
                 </button>
               </li>
             )
           })}
         </ol>
 
-        {/* Detail card */}
         <div className="reveal relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-navy-900/70 to-navy-950/50 p-8 sm:p-10">
           <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-gold-500/10 blur-3xl" />
           <div className="relative">
@@ -153,10 +147,9 @@ export const Analysis: FC = () => {
             </div>
             <p className="mt-5 text-base leading-relaxed text-slate-200">{stage.detail}</p>
 
-            {/* progress */}
             <div className="mt-8">
               <div className="flex justify-between text-xs text-slate-400">
-                <span>تقدّم التحليل</span>
+                <span>تقدّم دورة الملف</span>
                 <span>{Math.round((stage.n / 7) * 100)}٪</span>
               </div>
               <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/10">
@@ -170,27 +163,26 @@ export const Analysis: FC = () => {
         </div>
       </div>
 
-      {/* Verdict strip */}
       <div className="reveal mt-10 grid gap-4 rounded-3xl border border-white/10 bg-white/[0.02] p-6 sm:grid-cols-3 sm:p-8">
         <div className="flex items-start gap-3">
           <Users className="mt-1 h-5 w-5 text-gold-400" />
           <div>
-            <div className="font-semibold text-white">عدّة وكلاء بالتوازي</div>
-            <p className="text-sm text-slate-400">غرفة مداولة لا نموذج واحد</p>
+            <div className="font-semibold text-white">مسؤول واضح لكل ملف</div>
+            <p className="text-sm text-slate-400">لا طلب بلا مالك أو موعد أو حالة</p>
           </div>
         </div>
         <div className="flex items-start gap-3">
           <ShieldAlert className="mt-1 h-5 w-5 text-gold-400" />
           <div>
-            <div className="font-semibold text-white">مراجعٌ عدائي</div>
-            <p className="text-sm text-slate-400">حتى ثلاث جولات ضد الهلوسة</p>
+            <div className="font-semibold text-white">تصعيد بحسب المخاطر</div>
+            <p className="text-sm text-slate-400">الأولوية تتبع الأثر والموعد والحساسية</p>
           </div>
         </div>
         <div className="flex items-start gap-3">
           <ClipboardCheck className="mt-1 h-5 w-5 text-gold-400" />
           <div>
-            <div className="font-semibold text-white">تقرير سردي بالعربية</div>
-            <p className="text-sm text-slate-400">مع توصية تسوية واضحة</p>
+            <div className="font-semibold text-white">اعتماد بشري موثّق</div>
+            <p className="text-sm text-slate-400">القرار والمسؤولية المهنية لدى المختص</p>
           </div>
         </div>
       </div>
