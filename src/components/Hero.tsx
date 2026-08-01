@@ -1,16 +1,15 @@
 import type { FC } from 'react'
-import { ShieldCheck, Lock, Server, Scale, ArrowLeft } from 'lucide-react'
+import { ShieldCheck, Lock, Users, Scale, ArrowLeft } from 'lucide-react'
 import { Section } from './primitives'
 
 const TRUST = [
-  { icon: Server, text: 'تُخزَّن داخل المملكة' },
-  { icon: Lock, text: 'لا تدريب على بياناتكم' },
-  { icon: ShieldCheck, text: 'نموذجٌ نملكه وحدنا' },
+  { icon: Lock, text: 'منصة داخلية خاصة بمجموعة اراك' },
+  { icon: Users, text: 'صلاحيات وصول بحسب الدور والمسؤولية' },
+  { icon: ShieldCheck, text: 'المراجعة البشرية شرطٌ للاعتماد' },
 ]
 
 export const Hero: FC = () => (
   <Section id="top" className="pt-28 pb-16 sm:pt-36 sm:pb-24">
-    {/* Ambient background */}
     <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-40" />
       <div className="absolute -top-24 right-1/4 h-[420px] w-[420px] rounded-full bg-gold-500/10 blur-[120px] animate-float-slow" />
@@ -25,38 +24,37 @@ export const Hero: FC = () => (
             <span className="absolute inline-flex h-full w-full animate-pulse-ring rounded-full bg-gold-400" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-gold-400" />
           </span>
-          مبنيٌّ على النظام السعودي وحده
+          منصة الإدارة القانونية الداخلية لمجموعة اراك للتنمية
         </div>
 
         <h1 className="reveal mt-6 font-display text-4xl font-extrabold leading-[1.15] text-white sm:text-5xl lg:text-6xl">
-          ذكاءٌ اصطناعيٌّ قانوني
+          إدارةٌ قانونية ترى الخطر
           <br />
-          يمنح مكتبكم{' '}
-          <span className="text-shimmer">١٠ أضعاف الإنتاجية</span>
+          <span className="text-shimmer">قبل أن يصبح نزاعاً</span>
           <br />
-          بتكلفة مستشارٍ واحد.
+          وتحفظ كل ملفٍ حتى إغلاقه.
         </h1>
 
         <p className="reveal mt-6 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
-          منصّة ذكاء اصطناعي قانوني مبنية على النظام السعودي وحده — تُغيّر ميزان القوّة.
-          ذكاءٌ يفهم القانون السعودي بعمق، ويكشف الثغرات قبل أن تتحوّل إلى مشكلة —
-          ليقدّم شغلاً أدقّ… أسرع… وبثقةٍ أكبر.
+          قاضي اراك مساحة تشغيل موحّدة للشؤون القانونية في مجموعة اراك؛ تنظّم الوقاية
+          النظامية، ومراجعة العقود، ومتابعة القضايا والعملاء والموردين، ثم التحصيل والتنفيذ،
+          مع سجل واضح للمسؤوليات والقرارات والمواعيد.
         </p>
 
         <div className="reveal mt-8 flex flex-wrap items-center gap-3">
           <a
-            href="#cta"
+            href="#analysis"
             className="group inline-flex items-center gap-2 rounded-full bg-gold-500 px-7 py-3.5 text-sm font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-[0_12px_40px_-10px_rgba(201,162,75,0.65)]"
           >
             <Scale className="h-4 w-4" />
-            جرّب قضيتكم المعقّدة
+            استعرض دورة الملف القانوني
             <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
           </a>
           <a
-            href="#analysis"
+            href="#pipeline"
             className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-semibold text-slate-200 transition-colors hover:border-white/25 hover:bg-white/10"
           >
-            شاهد كيف يعمل
+            شاهد مسار الاعتماد
           </a>
         </div>
 
@@ -70,19 +68,18 @@ export const Hero: FC = () => (
         </ul>
       </div>
 
-      {/* Visual: orbiting agents around a central scale */}
       <HeroVisual />
     </div>
   </Section>
 )
 
 const AGENTS = [
-  { label: 'محلل المستندات', angle: 0 },
-  { label: 'باحث القوانين', angle: 60 },
-  { label: 'محلل السوابق', angle: 120 },
-  { label: 'محلل الخصم', angle: 180 },
-  { label: 'المراجع العدائي', angle: 240 },
-  { label: 'كاتب التقرير', angle: 300 },
+  { label: 'مراقب اللوائح', angle: 0 },
+  { label: 'مدقق العقود', angle: 60 },
+  { label: 'مدير القضايا', angle: 120 },
+  { label: 'متابع التحصيل', angle: 180 },
+  { label: 'سجل المخاطر', angle: 240 },
+  { label: 'صانع التقارير', angle: 300 },
 ]
 
 const HeroVisual: FC = () => (
@@ -91,14 +88,13 @@ const HeroVisual: FC = () => (
     <div className="absolute inset-[12%] rounded-full border border-white/5" />
     <div className="absolute inset-[26%] rounded-full border border-gold-500/15" />
 
-    {/* Orbiting ring */}
     <div
       className="absolute inset-[12%] rounded-full"
       style={{ animation: 'orbit 40s linear infinite' }}
     >
       {AGENTS.map((a) => {
         const rad = (a.angle * Math.PI) / 180
-        const r = 42 // % radius
+        const r = 42
         const x = 50 + r * Math.cos(rad)
         const y = 50 + r * Math.sin(rad)
         return (
@@ -119,7 +115,6 @@ const HeroVisual: FC = () => (
       })}
     </div>
 
-    {/* Center scale */}
     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
       <div className="relative flex h-28 w-28 items-center justify-center rounded-full bg-gradient-to-br from-navy-800 to-navy-950 shadow-[0_0_60px_-10px_rgba(201,162,75,0.4)] ring-1 ring-gold-500/30">
         <Scale className="h-12 w-12 text-gold-400" />
