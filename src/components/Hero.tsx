@@ -54,11 +54,9 @@ export const Hero: FC = () => (
         </div>
 
         <h1 className="reveal mt-6 font-display text-4xl font-extrabold leading-[1.15] text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.55)] sm:text-5xl lg:text-6xl">
-          <span className="text-shimmer">محامي اراك</span>
+          منصة داخلية لإدارة
           <br />
-          غرفة التشغيل القانونية
-          <br />
-          للإدارة الداخلية
+          <span className="text-shimmer">الشؤون القانونية</span>
         </h1>
 
         <p className="reveal mt-6 max-w-xl text-base leading-relaxed text-slate-200 drop-shadow-md sm:text-lg">
