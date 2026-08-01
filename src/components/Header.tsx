@@ -4,10 +4,10 @@ import { Menu, X, Scale } from 'lucide-react'
 import { Logo, Wordmark } from './Logo'
 
 const NAV = [
-  { href: '#story', label: 'القصة' },
-  { href: '#analysis', label: 'تحليل القضايا' },
-  { href: '#pipeline', label: 'إنتاج المستندات' },
-  { href: '#security', label: 'الأمان' },
+  { href: '#story', label: 'عن المنصة' },
+  { href: '#analysis', label: 'إدارة الملفات' },
+  { href: '#pipeline', label: 'دورة العمل' },
+  { href: '#security', label: 'الحوكمة' },
   { href: '#faq', label: 'الأسئلة' },
 ]
 
@@ -31,7 +31,7 @@ export const Header: FC = () => {
       }`}
     >
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
-        <a href="#top" className="flex items-center gap-2.5">
+        <a href="#top" className="flex items-center gap-2.5" aria-label="قاضي اراك">
           <Logo size={34} />
           <Wordmark className="text-lg text-white" />
         </a>
@@ -54,7 +54,7 @@ export const Header: FC = () => {
             className="group inline-flex items-center gap-2 rounded-full bg-gold-500 px-5 py-2 text-sm font-semibold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-[0_8px_30px_-8px_rgba(201,162,75,0.6)]"
           >
             <Scale className="h-4 w-4" />
-            جرّب قضيتك
+            مساحة العمل الداخلية
           </a>
         </div>
 
@@ -67,7 +67,6 @@ export const Header: FC = () => {
         </button>
       </div>
 
-      {/* Mobile menu */}
       <div
         className={`overflow-hidden border-t border-white/5 bg-navy-950/95 backdrop-blur-xl transition-[max-height,opacity] duration-300 md:hidden ${
           open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
@@ -90,7 +89,7 @@ export const Header: FC = () => {
             className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-gold-500 px-5 py-2.5 text-sm font-semibold text-navy-950"
           >
             <Scale className="h-4 w-4" />
-            جرّب قضيتك
+            مساحة العمل الداخلية
           </a>
         </nav>
       </div>
