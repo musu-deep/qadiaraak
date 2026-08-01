@@ -1,39 +1,40 @@
 import type { FC } from 'react'
 import { Section, Eyebrow } from './primitives'
-import { Server, Lock, BrainCircuit, ShieldCheck } from 'lucide-react'
+import { Building2, Lock, UserCheck, ShieldCheck } from 'lucide-react'
 
 const POINTS = [
   {
-    icon: Server,
-    title: 'تُخزَّن داخل المملكة',
-    desc: 'كل ما يُحفظ بصفة دائمة — قضاياكم ومستنداتكم وحسابكم — يقيم على خوادم داخل مراكز بيانات سعودية، ولا يُكرَّر خارج المملكة.',
+    icon: Building2,
+    title: 'نطاق داخلي محدد',
+    desc: 'قاضي اراك مخصص لأعمال مجموعة اراك للتنمية وفرقها المخولة، ولا يُقدَّم بوصفه خدمة عامة أو منصة تجارية لجهات خارج المجموعة.',
   },
   {
     icon: Lock,
-    title: 'لا تدريب على بياناتكم',
-    desc: 'مستنداتكم لا تُستخدم لتدريب أي نموذج — لا نماذجنا ولا أي طرف ثالث — ولا تُباع ولا تُشارك لأي غرض تسويقي.',
+    title: 'صلاحيات بحسب الدور',
+    desc: 'يُمنح الوصول وفق الجهة والدور والحاجة الفعلية للعمل، مع تقييد الملفات الحساسة وعدم إتاحة المحتوى لكل المستخدمين بصورة افتراضية.',
   },
   {
-    icon: BrainCircuit,
-    title: 'نموذجٌ نملكه وحدنا',
-    desc: 'تُعالَج قضاياكم عبر نموذجٍ مُدرَّب خصيصاً نملكه ونشغّله على خوادم مخصّصة لنا — لا تمرّ بياناتكم على أي خدمة ذكاء اصطناعي عامة.',
+    icon: UserCheck,
+    title: 'اعتماد مهني بشري',
+    desc: 'المخرجات المساعدة لا تُعد رأياً قانونياً نهائياً بذاتها؛ فالمراجعة والقرار والتوقيع والمسؤولية تبقى لدى المختص القانوني وصاحب الصلاحية.',
   },
   {
     icon: ShieldCheck,
-    title: 'تشفيرٌ وعزلٌ ومساءلة',
-    desc: 'تشفير TLS 1.3 أثناء النقل و AES-256 أثناء التخزين، وعزلٌ تام بين حسابات العملاء، وسجلّ وصولٍ موثَّق لكل اطّلاع.',
+    title: 'سجلٌ قابل للتتبع',
+    desc: 'تُوثق حالات الملفات والملاحظات والإصدارات والاعتمادات والتواريخ، بما يوضح من قام بالإجراء ومتى ولماذا، ويحفظ الذاكرة المؤسسية للقرارات.',
   },
 ]
 
 export const Security: FC = () => (
   <Section id="security" className="py-20 sm:py-28">
     <div className="reveal mx-auto max-w-3xl text-center">
-      <Eyebrow>أين تذهب بياناتكم</Eyebrow>
+      <Eyebrow>الحوكمة والخصوصية</Eyebrow>
       <h2 className="mt-5 font-display text-3xl font-extrabold leading-snug text-white sm:text-4xl">
-        «أرفع ملفات موكّلي لمن؟» — هذا أول سؤال، وهذه إجابته.
+        السرية لا تُترك للاجتهاد؛ بل تُدار بالصلاحيات والمراجعة والتوثيق
       </h2>
       <p className="mt-4 text-base leading-relaxed text-slate-300 sm:text-lg">
-        نعامل سرّ مهنة موكّليكم كما تعاملونه. إليكم أين تذهب بياناتكم بالضبط — لا عموميات.
+        صُممت تجربة قاضي اراك حول مبدأ الحاجة إلى المعرفة، وفصل المسؤوليات، وعدم اعتماد
+        أي مخرج قانوني دون مراجعة المختص المخول.
       </p>
     </div>
 
@@ -54,24 +55,21 @@ export const Security: FC = () => (
       ))}
     </div>
 
-    {/* Compliance badges */}
     <div className="reveal mt-10 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-navy-900/60 to-navy-950/40 p-8 text-center">
       <div className="flex flex-wrap items-center justify-center gap-6">
-        {['سدايا', 'الهيئة الوطنية للأمن السيبراني', 'نظام حماية البيانات الشخصية'].map(
-          (b) => (
-            <div
-              key={b}
-              className="flex items-center gap-2.5 rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-3"
-            >
-              <ShieldCheck className="h-5 w-5 text-gold-400" />
-              <span className="text-sm font-medium text-slate-200">{b}</span>
-            </div>
-          ),
-        )}
+        {['سرية الملفات القانونية', 'أقل قدر لازم من الصلاحيات', 'توثيق القرارات والاعتمادات'].map((b) => (
+          <div
+            key={b}
+            className="flex items-center gap-2.5 rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-3"
+          >
+            <ShieldCheck className="h-5 w-5 text-gold-400" />
+            <span className="text-sm font-medium text-slate-200">{b}</span>
+          </div>
+        ))}
       </div>
-      <p className="mt-6 max-w-2xl mx-auto text-sm leading-relaxed text-slate-400">
-        متوافق مع نظام حماية البيانات الشخصية ومتطلبات الهيئة السعودية للبيانات والذكاء
-        الاصطناعي (سدايا)، ومعايير الهيئة الوطنية للأمن السيبراني.
+      <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-slate-400">
+        تُطبَّق السياسات التقنية والتنظيمية التفصيلية وفق البنية المعتمدة لدى مجموعة اراك،
+        ولا تُعرض في المنصة وعود أمنية أو شهادات امتثال غير موثقة.
       </p>
     </div>
   </Section>
